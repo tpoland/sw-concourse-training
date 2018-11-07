@@ -9,7 +9,7 @@ export BOSH_DEPLOYMENT=${GITHUB_USERNAME}-nginx
 export BOSH_DIRECTOR=$(bosh int creds.yml --path /bosh_url)
 # export BOSH_CLIENT=admin
 # export BOSH_CLIENT_SECRET=<replace-me>
-export BOSH_ENVIRONMENT=training
+export BOSH_ENVIRONMENT='10.4.1.4'
 export CA_CERT_URL=https://s3.us-east-2.amazonaws.com/dg-training-concourse/training-bosh.pem
 
 cd source-code/nginx_release
