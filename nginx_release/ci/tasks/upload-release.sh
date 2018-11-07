@@ -15,7 +15,7 @@ export CA_CERT_URL=https://s3.us-east-2.amazonaws.com/dg-training-concourse/trai
 cd source-code/nginx_release
 
 curl -LO ${CA_CERT_URL}
-bosh alias-env ${BOSH_ENVIRONMENT} --ca-cert training-bosh.pem -e ${BOSH_DIRECTOR} training-bosh
+bosh alias-env ${BOSH_ENVIRONMENT} --ca-cert training-bosh.pem -e ${BOSH_DIRECTOR}
 
 bosh login
 
