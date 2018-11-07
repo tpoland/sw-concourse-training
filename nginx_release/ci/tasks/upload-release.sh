@@ -6,16 +6,16 @@ set -x
 #But this does not demonostrate a best practice
 
 export BOSH_DEPLOYMENT=${GITHUB_USERNAME}-nginx
-export BOSH_DIRECTOR=$(bosh int creds.yml --path /bosh_url)
+export BOSH_DIRECTOR='https://10.4.1.4:25555'
 # export BOSH_CLIENT=admin
 # export BOSH_CLIENT_SECRET=<replace-me>
-export BOSH_ENVIRONMENT='10.4.1.4'
+export BOSH_ENVIRONMENT='training'
 export CA_CERT_URL=https://s3.us-east-2.amazonaws.com/dg-training-concourse/training-bosh.pem
 
 cd source-code/nginx_release
 
 curl -LO ${CA_CERT_URL}
-bosh alias-env --ca-cert training-bosh.pem -e ${BOSH_DIRECTOR} training-bosh
+bosh alias-env ${BOSH_ENVIRONMENT} --ca-cert training-bosh.pem -e ${BOSH_DIRECTOR} training-bosh
 
 bosh login
 
