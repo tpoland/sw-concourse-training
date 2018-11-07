@@ -10,7 +10,7 @@ export BOSH_DIRECTOR=$(bosh int creds.yml --path /bosh_url)
 # export BOSH_CLIENT=admin
 # export BOSH_CLIENT_SECRET=<replace-me>
 export BOSH_ENVIRONMENT=training
-export CA_CERT_URL=https://s3.us-east-2.amazonaws.com/dg-training-concourse/dg_director_ca.pem
+export CA_CERT_URL=https://s3.us-east-2.amazonaws.com/dg-training-concourse/training-bosh.pem
 
 cd source-code/nginx_release
 
