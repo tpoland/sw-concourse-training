@@ -9,5 +9,5 @@ export BOSH_ENVIRONMENT=training
 bosh alias-env ${BOSH_ENVIRONMENT} --ca-cert cert-file/training-bosh.pem -e ${BOSH_DIRECTOR}
 bosh login
 
-cd source-code/nginx-release
+cd source-code/nginx_release
 bosh deploy --non-interactive manifests/manifest.yml
