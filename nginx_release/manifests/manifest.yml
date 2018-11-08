@@ -1,4 +1,4 @@
-name: <replace-me>-nginx
+name: tpoland-nginx
 
 releases:
 - name: nginx
