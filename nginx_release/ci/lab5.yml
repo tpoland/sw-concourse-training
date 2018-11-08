@@ -17,6 +17,25 @@ jobs:
       inputs:
         - name: source-code
         - name: cert-file
+- name: job-deploy-release
+  public: true
+  plan:
+  - get: source-code
+    trigger: true
+    passed: [job-upload-release]
+    params: { depth: 1 }
+  - get: cert-file
+  - task: deploy-release
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: { repository: starkandwayne/concourse }
+      run:
+        path: source-code/nginx_release/ci/tasks/deploy-release.sh
+      inputs:
+        - name: source-code
+        - name: cert-file
 
 resources:
 - name: source-code
@@ -27,5 +46,5 @@ resources:
 - name: cert-file
   type: file-url
   source:
-    url: https://unreal-snw.s3.amazonaws.com/training-bosh.pem
+    url: https://s3.us-east-2.amazonaws.com/dg-training-concourse/training-bosh.pem
     filename: training-bosh.pem
