@@ -37,6 +37,13 @@ jobs:
         - name: source-code
         - name: cert-file
 
+resource_types:
+  - name: file-url
+    type: docker-image
+    source:
+      repository: pivotalservices/concourse-curl-resource
+      tag: latest
+
 resources:
 - name: source-code
   type: git
