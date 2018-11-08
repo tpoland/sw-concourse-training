@@ -11,10 +11,8 @@ export BOSH_CLIENT=admin
 export BOSH_CLIENT_SECRET=kDuaJ8nD0Ky5GGLXntsFeg88M934a3
 export BOSH_ENVIRONMENT='training'
 
-cd source-code/nginx_release
-
-bosh alias-env ${BOSH_ENVIRONMENT} --ca-cert ~/training-bosh.pem -e ${BOSH_DIRECTOR}
-
+bosh alias-env ${BOSH_ENVIRONMENT} --ca-cert training-bosh.pem -e ${BOSH_DIRECTOR}
 bosh login
 
+cd source-code/nginx_release
 bosh upload-release releases/release.gz

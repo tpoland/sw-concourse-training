@@ -19,7 +19,7 @@ jobs:
       - name: cert-file
       platform: linux
       run:
-        path: source-code/nginx_release/ci/tasks/upload-release.sh
+        path: source-code/nginx_release/ci/tasks/upload-release-supplied-cert.sh
     task: upload-release
   public: true
 - name: job-deploy-release
@@ -41,7 +41,7 @@ jobs:
       - name: cert-file
       platform: linux
       run:
-        path: source-code/nginx_release/ci/tasks/deploy-release.sh
+        path: source-code/nginx_release/ci/tasks/deploy-release-supplied-cert.sh
     task: deploy-release
   public: true
 meta:
@@ -49,6 +49,12 @@ meta:
   pipeline: tpoland-nginx-demo
   target: training
   url: https://pipes.starkandwayne.com
+resource_types:
+- name: file-url
+  source:
+    repository: pivotalservices/concourse-curl-resource
+    tag: latest
+  type: docker-image
 resources:
 - name: source-code
   source:
