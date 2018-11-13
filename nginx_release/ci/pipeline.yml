@@ -9,6 +9,7 @@ jobs:
     params:
       depth: 1
     trigger: true
+  - get: cert-file
   - config:
       image_resource:
         source:
@@ -16,9 +17,10 @@ jobs:
         type: docker-image
       inputs:
       - name: source-code
+      - name: cert-file
       platform: linux
       run:
-        path: source-code/nginx_release/ci/tasks/upload-release.sh
+        path: source-code/nginx_release/ci/tasks/upload-release-supplied-cert.sh
     task: upload-release
   public: true
 - name: job-deploy-release
@@ -29,6 +31,7 @@ jobs:
     passed:
     - job-upload-release
     trigger: true
+  - get: cert-file
   - config:
       image_resource:
         source:
@@ -36,9 +39,10 @@ jobs:
         type: docker-image
       inputs:
       - name: source-code
+      - name: cert-file
       platform: linux
       run:
-        path: source-code/nginx_release/ci/tasks/deploy-release.sh
+        path: source-code/nginx_release/ci/tasks/deploy-release-supplied-cert.sh
     task: deploy-release
   public: true
 meta:
@@ -46,10 +50,21 @@ meta:
   pipeline: tpoland-nginx-demo
   target: training
   url: https://pipes.starkandwayne.com
+resource_types:
+- name: file-url
+  source:
+    repository: pivotalservices/concourse-curl-resource
+    tag: latest
+  type: docker-image
 resources:
 - name: source-code
   source:
     branch: master
     uri: https://github.com/tpoland/sw-concourse-training.git
   type: git
+- name: cert-file
+  source:
+    filename: training-bosh.pem
+    url: https://s3.us-east-2.amazonaws.com/dg-training-concourse/training-bosh.pem
+  type: file-url
 
