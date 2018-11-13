@@ -28,6 +28,7 @@ jobs:
       depth: 1
     passed:
     - job-upload-release
+    trigger: true
   - config:
       image_resource:
         source:
