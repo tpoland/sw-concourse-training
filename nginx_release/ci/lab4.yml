@@ -4,6 +4,7 @@ jobs:
   public: true
   plan:
   - get: source-code
+    trigger: true
     params: { depth: 1 }
   - task: upload-release
     config:
@@ -19,7 +20,6 @@ jobs:
   public: true
   plan:
   - get: source-code
-    trigger: true
     passed: [job-upload-release]
     params: { depth: 1 }
   - task: deploy-release
