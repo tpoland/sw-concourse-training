@@ -15,8 +15,8 @@ github:
 
 bosh:
   deployment: (( grab release.name ))
-  client_user: (( grab $CONCOURSE_USERNAME ))
-  client_secret: (( grab $CONCOURSE_PASSWORD ))
+  client_user: (( grab $BOSH_CLIENT ))
+  client_secret: (( grab $BOSH_CLIENT_SECRET ))
   url: https://10.4.1.4:25555/
   ca_cert: |
     -----BEGIN CERTIFICATE-----

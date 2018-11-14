@@ -29,7 +29,7 @@ bosh:
     YvlVPTIm4YPba9BqNY1kf0W//QhxSOmnqUs0xDEotgMs887/YRyoJPKYZT3lTHte
     q0Di9/oGTshOV94=
     -----END CERTIFICATE-----
-  client_secret: 9aFk66ELulu8dkPVgIM3tw1Z
+  client_secret: kDuaJ8nD0Ky5GGLXntsFeg88M934a3
   client_user: admin
   deployment: tpoland-nginx
   url: https://10.4.1.4:25555/
@@ -83,7 +83,7 @@ jobs:
           q0Di9/oGTshOV94=
           -----END CERTIFICATE-----
         BOSH_CLIENT: admin
-        BOSH_CLIENT_SECRET: 9aFk66ELulu8dkPVgIM3tw1Z
+        BOSH_CLIENT_SECRET: kDuaJ8nD0Ky5GGLXntsFeg88M934a3
         BOSH_DEPLOYMENT: tpoland-nginx
         BOSH_ENVIRONMENT: https://10.4.1.4:25555/
       platform: linux
@@ -138,7 +138,7 @@ jobs:
           q0Di9/oGTshOV94=
           -----END CERTIFICATE-----
         BOSH_CLIENT: admin
-        BOSH_CLIENT_SECRET: 9aFk66ELulu8dkPVgIM3tw1Z
+        BOSH_CLIENT_SECRET: kDuaJ8nD0Ky5GGLXntsFeg88M934a3
         BOSH_DEPLOYMENT: tpoland-nginx
         BOSH_ENVIRONMENT: https://10.4.1.4:25555/
       platform: linux
