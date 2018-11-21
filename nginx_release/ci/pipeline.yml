@@ -30,7 +30,7 @@ bosh:
     q0Di9/oGTshOV94=
     -----END CERTIFICATE-----
   client_secret: (( bosh.client_secret ))
-  client_user: (( bosh.client ))
+  client_user: ((bosh.client))
   deployment: tpoland-nginx
   url: https://10.4.1.4:25555/
 github:
